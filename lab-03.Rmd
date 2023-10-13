@@ -21,9 +21,7 @@ library(ggplot2)
 knitr::include_graphics("img/Speaking-the-world.jpg")
 ```
 
-_Write your comments about image 1 below_
-
-
+_Size of bars on graph are not proportional to the numbers allocated. Also the number for Chinese speakers should be 1026 millions instead of 1026 billion._
 
 
 
@@ -84,14 +82,13 @@ How many observations are there in the data set?
 ## Exercise 2
 
 ```{r pivoting}
-## Uncomment and complete the following code
 
-#staff_long <- ___ %>%
-#  ___(
-#    cols = ____, 
-#    names_to = "_____",
-#    values_to = "percent"
-#    )
+staff_long <- staff %>%
+  pivot_longer(
+    cols = '1975' : '2011', 
+    names_to = "years",
+    values_to = "percent"
+    )
 
 ```
 
