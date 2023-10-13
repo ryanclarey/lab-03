@@ -394,20 +394,38 @@ library(ggplot2)</code></pre>
 <h2>Exercise 1</h2>
 <p>What is the difference between <em>wide format</em> data and <em>long
 format</em> data?</p>
+<p>In wide format data, a subject’s repeated response will be in a
+single row, and each response is in a different column, but in long
+format, each observation has a row associated to it.</p>
 <p>Is the format <code>staff</code> data <em>wide</em> or
 <em>long</em>?</p>
+<p>‘staff’ is an example of wide data.</p>
 <p>How many observations are there in the data set?</p>
+<p>11</p>
 </div>
 <div id="exercise-2" class="section level2">
 <h2>Exercise 2</h2>
-<pre class="r"><code>## Uncomment and complete the following code
+<pre class="r"><code>staff_long &lt;- staff %&gt;%
+  pivot_longer(
+    cols = &#39;1975&#39; : &#39;2011&#39;, 
+    names_to = &quot;year&quot;,
+    values_to = &quot;percent&quot;)
 
-#staff_long &lt;- ___ %&gt;%
-#  ___(
-#    cols = ____, 
-#    names_to = &quot;_____&quot;,
-#    values_to = &quot;percent&quot;
-#    )</code></pre>
+staff_long</code></pre>
+<pre><code>## # A tibble: 55 × 3
+##    faculty_type              year  percent
+##    &lt;chr&gt;                     &lt;chr&gt;   &lt;dbl&gt;
+##  1 Full-Time Tenured Faculty 1975     29  
+##  2 Full-Time Tenured Faculty 1989     27.6
+##  3 Full-Time Tenured Faculty 1993     25  
+##  4 Full-Time Tenured Faculty 1995     24.8
+##  5 Full-Time Tenured Faculty 1999     21.8
+##  6 Full-Time Tenured Faculty 2001     20.3
+##  7 Full-Time Tenured Faculty 2003     19.3
+##  8 Full-Time Tenured Faculty 2005     17.8
+##  9 Full-Time Tenured Faculty 2007     17.2
+## 10 Full-Time Tenured Faculty 2009     16.8
+## # ℹ 45 more rows</code></pre>
 </div>
 <div id="exercise-3" class="section level2">
 <h2>Exercise 3</h2>
